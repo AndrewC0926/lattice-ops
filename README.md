@@ -1,20 +1,24 @@
 # lattice-ops
 
-**AI-powered operational intelligence platform for defense-scale facilities and cross-functional program execution.**
+Every company hits the moment when growth outpaces operations. Decisions that used to take a hallway conversation now require three meetings and a Slack thread nobody reads. Priorities blur because six teams are blocked on the same facility upgrade and nobody can see the dependency chain. The current answer is a spreadsheet someone emailed last Tuesday — and half the data is already stale. This is the operational intelligence platform I'd build for that inflection point as TPM, Core Operations at Anduril. The name borrows from Lattice OS because the same mesh-network thinking that connects sensors on a battlefield applies to connecting decisions inside a scaling organization.
 
-This is a portfolio build demonstrating the operational intelligence architecture I'd implement as TPM, Core Operations at Anduril. Every module maps to a specific capability required for the role — from zero-to-one program delivery to scrappy-to-scalable data pipelines.
+**Status: Complete — 8 phases, 72 tests, zero network calls in tests, zero `any`**
 
-## Why This Exists
+## How Each Package Maps to the Role
 
-The role demands four pillars of operational capability. Each package maps to one:
+| JD Requirement | Package | What It Proves |
+|----------------|---------|----------------|
+| *"Drive zero-to-one program delivery for cross-functional operational initiatives"* | `program-tracker` | 5-phase lifecycle with hard go/no-go gates, milestone dependency chains, RAG auto-escalation at 90% budget burn |
+| *"Build scrappy-to-scalable data pipelines and analytics"* | `ops-intelligence` | CSV-paste ingest on day one, ServiceNow connector on day thirty, anomaly detection and site health scoring at every tier |
+| *"Support leadership decision-making with data-driven analysis"* | `ai-layer` | BLUF executive briefs, risk assessments with mitigation actions, portfolio gap analysis — Claude-powered with deterministic caching |
+| *"Establish structured decision frameworks across programs"* | `decision-engine` | MAGTF-style Architecture Decision Records with options analysis, cost estimation, business case generation, and supersede chains |
+| *"Own cross-functional coordination across engineering, facilities, and manufacturing"* | `api` | Single REST surface wiring programs, AI analysis, site health, and decisions into one dashboard a VP can read |
 
-| Pillar | Package | What It Does |
-|--------|---------|--------------|
-| Zero-to-one program delivery | `program-tracker` | 5-phase lifecycle engine with hard go/no-go gates |
-| Scrappy-to-scalable analytics | `ops-intelligence` | CSV ingest through anomaly detection pipeline |
-| AI-powered leadership support | `ai-layer` | Risk assessments, BLUF briefs, portfolio gap analysis |
-| Structured decision-making | `decision-engine` | Architecture Decision Records with options analysis |
-| Cross-functional API | `api` | Express REST API wiring all packages + dashboard |
+## What I'd Do in Week One at Anduril
+
+- **Audit the current state of play.** Walk every site's facilities team — Costa Mesa, Columbus, Huntington Beach, Reston — find out what's tracked in ServiceNow vs. what lives in someone's head, and map the gap between what leadership sees and what's actually happening on the ground.
+- **Identify the one decision that's blocked.** There's always a program waiting on a go/no-go that nobody owns. Find it, frame it with two real options and a cost estimate, get the right three people in a room, and drive it to resolution before Friday.
+- **Ship a scrappy win.** Stand up a single dashboard view — even if it's pulling from CSV exports — that gives the VP of Facilities one number they don't have today. Trust comes from delivering signal, not from promising a platform.
 
 ## Tech Stack
 
@@ -46,7 +50,7 @@ pnpm -r build
 # Run database migrations
 pnpm db:migrate
 
-# Run all tests (69 tests, zero network calls)
+# Run all tests (72 tests, zero network calls)
 pnpm test
 
 # Start the API server
