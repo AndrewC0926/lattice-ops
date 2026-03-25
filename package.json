@@ -1,0 +1,17 @@
+{
+  "name": "lattice-ops",
+  "version": "0.1.0",
+  "private": true,
+  "description": "AI-powered operational intelligence platform for defense-scale facilities and cross-functional program execution",
+  "scripts": {
+    "build": "pnpm -r build",
+    "test": "pnpm -r test",
+    "lint": "pnpm -r lint",
+    "db:migrate": "psql $DATABASE_URL -f db/schema.sql",
+    "db:seed": "psql $DATABASE_URL -f db/seed.sql"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
+  }
+}
